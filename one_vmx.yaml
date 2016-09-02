@@ -1,0 +1,77 @@
+#api_server_ip: 10.84.7.42
+#api_server_port: 8082
+#auth_url: http://10.84.7.42:35357/v2.0
+#username: admin
+#password: contrail123
+#nova_db_password: c0ntrail123
+#db_host: 10.84.7.42
+#domain_name: default-domain
+tenant_name: test-tanvir-01
+#public_tenant: admin
+#public_vn: Public
+tenant_cidr: 192.168.1.0/24
+instances:
+  - name: r1_re0
+    cidr: 192.168.1.0/24
+    image: 5992c3fb-ac74-4ebf-98e2-d8e67249a028
+    flavor: junos.occam
+    metadata:
+       gateway: 192.168.1.1
+       hostname: r1_re0
+       hw.pci.link.0x60.irq: 10
+       netmask: '24'
+       re0_ip: 192.168.1.2
+       re1_ip: 192.168.1.3
+       vm_chassis_i2cid: 33
+       vm_chassisname: r1
+       vm_chassname: r1
+       vm_i2cid: '0xBAB'
+       vm_instance: 0
+       vm_is_virtual: 1
+       vm_ore_present: 1
+       vm_retype: RE-VMX
+       vmtype: 0
+    personality:
+       /var/db/cumulus/baseline_config.template: /opt/juniper/cumulus/examples/vmxp2.base.systest.conf
+  - name: r1_re1
+    cidr: 192.168.1.0/24
+    image: 5992c3fb-ac74-4ebf-98e2-d8e67249a028
+    flavor: junos.occam
+    metadata:
+       gateway: 192.168.1.1
+       hostname: r1_re0
+       hw.pci.link.0x60.irq: 10
+       netmask: '24'
+       re0_ip: 192.168.1.2
+       re1_ip: 192.168.1.3
+       vm_chassis_i2cid: 33
+       vm_chassisname: r1
+       vm_chassname: r1
+       vm_i2cid: '0xBAB'
+       vm_instance: 1
+       vm_is_virtual: 1
+       vm_ore_present: 1
+       vm_retype: RE-VMX
+       vmtype: 0
+    personality:
+       /var/db/cumulus/baseline_config.template: /opt/juniper/cumulus/examples/vmxp2.base.systest.conf
+  - name: r1_fpc0
+    cidr: 192.168.1.0/24
+    image: 25992c3fb-ac74-4ebf-98e2-d8e67249a028
+    flavor: junos.occam
+    metadata:
+      boot_noveriexec: 'yes'
+      gateway: 192.168.1.1
+      hostname: r1_fpc0
+      hw.pci.link.0x60.irq: 10
+      netmask: '24'
+      re0_ip: 192.168.1.4
+      vm_chassis_i2cid: 33
+      vm_chassname: r1
+      vm_i2cid: '0xBAA'
+      vm_instance: 0
+      vm_is_virtual: 1
+      vm_retype: RE-VMX
+      vmtype: 1
+    personality:
+      /var/db/cumulus/baseline_config.template: /opt/juniper/cumulus/examples/vmx.base.systest.conf
