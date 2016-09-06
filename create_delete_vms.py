@@ -123,6 +123,10 @@ class Client(object):
                                 VnSubnetsType([IpamSubnetType(
                                 subnet=SubnetType(network, int(mask)))]))
         self.vnc_api_h.virtual_network_create(vn_obj)
+        vn_obj.set_flood_unknown_unicast(True)
+	vn_params = VirtualNetworkType()
+        vn_params.set_forwarding_mode('l2') 
+	vn_obj.set_virtual_network_properties(vn_params)
         return vn_obj
 
     #@time_taken
