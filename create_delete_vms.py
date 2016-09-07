@@ -127,6 +127,7 @@ class Client(object):
 	vn_params = VirtualNetworkType()
         vn_params.set_forwarding_mode('l2') 
 	vn_obj.set_virtual_network_properties(vn_params)
+	self.vnc_api_h.virtual_network_update(vn_obj)
         return vn_obj
 
     #@time_taken
